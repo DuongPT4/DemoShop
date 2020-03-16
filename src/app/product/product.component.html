@@ -1,0 +1,26 @@
+<!-- <ul>
+    <li *ngFor="let product of products">
+        <h3>{{product.name}}</h3>
+        <p>{{product.description}}</p>
+        <img src={{product.img}} alt={{product.img}} />
+    </li>
+</ul> -->
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let product of products">
+        <img src={{product.img}} alt={{product.img}} width="50%" height="50%"/>
+        <h3>{{product.name}}</h3>
+        <p>{{product.description}}</p>        
+        <button (click)=viewDetail(product) class="btn btn-primary" 
+            data-toggle="modal" data-target="#exampleModal">View Details</button>
+      </div>      
+    </div>
+</div>
+  
+  <!-- Modal -->
+  
+  <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      
+        <app-product-detail [product]="selectedProduct"></app-product-detail>
+       </div>
